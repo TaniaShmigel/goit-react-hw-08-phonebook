@@ -1,8 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { contactApi } from 'services/phonebookAPI';
-
-contactApi();
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -21,6 +18,7 @@ export const addContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', contact);
+      alert(`Contact ${contact.name} added successfully`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

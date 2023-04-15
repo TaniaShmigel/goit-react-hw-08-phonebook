@@ -38,7 +38,6 @@ const ContactsBar = () => {
     }
 
     dispatch(addContact({ name, number }));
-    return alert(`Contact ${name} added successfully`);
   };
 
   return (
